@@ -1,0 +1,55 @@
+﻿@model Forms.Models.Libro.LibroRegisterModel
+
+@{
+    ViewData["Title"] = "Registrar";
+}
+
+<h1>Registrar</h1>
+
+<h4>LibroCreateModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Registrar">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Editorial</th>
+                        <th>No.Copias</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (var i = 0; i < Model.LibrosToCreate.Count; i++)
+                                {
+                        <tr>
+                            <td>
+                                <input asp-for="LibrosToCreate[i].Nombre" type="text" placeholder="nombre" />
+                            </td>
+                            <td>
+                                <input asp-for="LibrosToCreate[i].Editorial" type="text" placeholder="editorial" />
+                            </td>
+                            <td>
+                                <input asp-for="LibrosToCreate[i].NoCopias" type="text" placeholder="Numero de copias" />
+                            </td>
+                        </tr> 
+                        
+                    }
+                   
+                </tbody>
+            </table>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

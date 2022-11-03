@@ -1,6 +1,9 @@
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+//builder.Services.AddRazorPages()
+//    .AddRazorRuntimeCompilation();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -25,3 +28,20 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
+//namespace Forms
+//{
+//    public class Program
+//    {
+//        public static void Main(string[] args)
+//        {
+//            CreateHostBuilder(args).Build().Run();
+//        }
+
+//        public static IHostBuilder CreateHostBuilder(string[] args) =>
+//       Host.CreateDefaultBuilder(args)
+//           .ConfigureWebHostDefaults(webBuilder =>
+//           {
+//               webBuilder.UseStartup<Startup>();
+//           });
+//    }
+//}
